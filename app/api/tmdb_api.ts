@@ -13,3 +13,11 @@ export const getMovieDetails = async (movieId: number) => {
   );
   return await response.json();
 };
+
+export const getSearchMovie = async (query: string) => {
+  const response: Response = await fetch(
+    `https://api.themoviedb.org/3/search/movie?query=${query}&language=en-US`,
+    options
+  );
+  return await response.json();
+}
