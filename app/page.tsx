@@ -14,7 +14,7 @@ export default function Home() {
   const [searchMovie, setSearchMovie] = useState<MOVIESEARCHRESULTS[]>();
   const [infoMovie, setInfoMovie] = useState<INFOMOVIERESULTS[]>();
   const [selectMovie, setSelectMovie] = useState<string>("");
-  const [loading, setLoading] = useState<boolean>();
+  const [loading, setLoading] = useState<boolean>(true);
 
   const urlBackImg = `https://image.tmdb.org/t/p/original${movies?.backdrop_path}`;
 
@@ -54,34 +54,34 @@ export default function Home() {
         backgroundImage: `url(${urlBackImg})`,
       }}
     >
-      <div className="backdrop-opacity-10 backdrop-invert bg-black/40 px-52 py-8">
-        {/*BACKDROP OPACITY*/}
+      {/*BACKDROP OPACITY*/}
+      <div className="backdrop-opacity-10 backdrop-invert bg-black/50 px-52 py-8 min-h-screen">
         {/* NAVBAR */}
-        <div className="w-full flex flex-col text-black bg-red-500">
-          <div className="bg-blue-500 w-full flex justify-between">
-            <Image
-              src={"/logo.png"}
-              alt="logo picture"
-              width={130}
-              height={130}
-            />
+        <section className="flex justify-between items-center">
+          <Image
+            src={"/logo.png"}
+            alt="logo picture"
+            width={130}
+            height={130}
+          />
+          <div className="relative w-7/12">
             <input
               type="text"
-              placeholder="Search for a movie"
+              placeholder="Search Movie Title.."
               value={selectMovie}
               onChange={handleSearch}
-              className="border border-gray-400 rounded-md p-2 w-7/12"
+              className="px-4 py-1 w-full bg-transparent border-b-2 border-white font-lato font-light outline-none"
             />
             {infoMovie?.length! > 0 && (
               <ul
                 id="infomovie_list"
-                className="bg-white border-[1px] rounded-lg p-4 absolute z-10"
+                className="backdrop-opacity-10 backdrop-invert bg-black/80 border-[1px] absolute z-10 w-full border-transparent"
               >
                 {infoMovie?.map((movie) => {
                   return (
                     <li
                       key={movie.id}
-                      className="min-h-0 w-full border-solid border-l-gray-300 py-1 break-words hover:bg-gray-100 cursor-pointer"
+                      className="min-h-0 w-full border-solid px-6 py-2 break-words cursor-pointer font-lato font-light text-lg hover:bg-green-400"
                       onClick={() => {
                         setSelectMovie(movie.title);
                         getMovies(movie.id);
@@ -95,9 +95,9 @@ export default function Home() {
               </ul>
             )}
           </div>
-        </div>
+        </section>
         {/* INFO MOVIE */}
-        <div className="pt-10">
+        <section className="pt-8">
           {loading ? (
             <svg
               className="animate-spin h-5 w-5 mr-3 ..."
@@ -111,7 +111,7 @@ export default function Home() {
                 width={390}
                 height={390}
               />
-              <div className="px-7 flex flex-col justify-evenly">
+              <section className="p-7 flex flex-col space-y-4">
                 <h1 className="uppercase font-bold text-4xl font-lato">
                   {movies?.title}
                 </h1>
@@ -121,7 +121,7 @@ export default function Home() {
                 <p className="font-lato text-base font-light">
                   {movies?.overview}
                 </p>
-                <div>
+                <section>
                   <div className="flex flex-row">
                     {movies?.genres.map((genre) => {
                       return (
@@ -146,8 +146,8 @@ export default function Home() {
                       );
                     })}
                   </div>
-                </div>
-                <div className="grid grid-cols-2 font-oswald font-light">
+                </section>
+                <section className="grid grid-cols-2 font-oswald font-light">
                   <div>
                     <p>Original Release:</p>
                     <span className="text-green-400 text-2xl">
@@ -175,11 +175,11 @@ export default function Home() {
                       {movies?.vote_average} / 10
                     </span>
                   </div>
-                </div>
-              </div>
+                </section>
+              </section>
             </article>
           )}
-        </div>
+        </section>
       </div>
     </main>
   );
