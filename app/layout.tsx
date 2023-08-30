@@ -1,10 +1,17 @@
 import type { Metadata } from "next";
-import { Lato } from "next/font/google";
+import { Lato, Oswald } from "next/font/google";
 import "./globals.css";
 
 const lato = Lato({
   subsets: ["latin"],
   weight: ["100", "300", "400", "700", "900"],
+  variable: "--font-lato",
+});
+
+const oswald = Oswald({
+  subsets: ["latin"],
+  weight: ["200", "300", "400", "500", "600", "700"],
+  variable: "--font-oswald",
 });
 
 export const metadata: Metadata = {
@@ -19,7 +26,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={lato.className}>{children}</body>
+      <body className={`${lato.variable} ${oswald.variable}`}>{children}</body>
     </html>
   );
 }
