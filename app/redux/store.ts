@@ -3,6 +3,7 @@ import { infoMovieSlice } from "./features/infoMovieSlice";
 import { searchMovieSlice } from "./features/searchMovieSlice";
 import { selectedMovieSlice } from "./features/selectedMovieSlice";
 import { movieSlice } from "./features/movieSlice";
+import { loadingSlice } from "./features/loadingSlice";
 
 export const makeStore = configureStore({
   reducer: {
@@ -10,6 +11,7 @@ export const makeStore = configureStore({
     selectedMovieSlice: selectedMovieSlice.reducer,
     searchMovieSlice: searchMovieSlice.reducer,
     movieSlice: movieSlice.reducer,
+    loadingSlice: loadingSlice.reducer,
   },
   devTools: true,
 });
