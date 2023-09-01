@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Lato, Oswald } from "next/font/google";
 import "./globals.css";
+import Providers from "./redux/provider";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -26,7 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${lato.variable} ${oswald.variable}`}>{children}</body>
+      <body className={`${lato.variable} ${oswald.variable}`}>
+        <Providers>{children}</Providers>
+      </body>
     </html>
   );
 }
