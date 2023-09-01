@@ -1,5 +1,6 @@
 import { useAppSelector } from "@/app/redux/hooks";
 import Image from "next/image";
+import TextGrid from "../textGrid";
 
 export default function Card() {
   const movies = useAppSelector((state) => state.movieSlice);
@@ -29,56 +30,46 @@ export default function Card() {
             </span>
             <p className="font-lato text-base font-light">{movies.overview}</p>
             <section>
-              <div className="flex flex-row">
-                {movies.genres.map((genre) => {
-                  return (
-                    <span
-                      key={genre.id}
-                      className="text-green-400 font-oswald font-light text-2xl"
-                    >
-                      {genre.name} &nbsp;
-                    </span>
-                  );
-                })}
-              </div>
-              <div className="flex flex-row">
-                {movies.production_companies.map((company) => {
-                  return (
-                    <span key={company.id} className="font-oswald font-light">
-                      {company.name} &nbsp;
-                    </span>
-                  );
-                })}
-              </div>
+              {movies.genres.map((genre, index) => {
+                return (
+                  <span
+                    key={genre.id}
+                    className="text-green-400 font-oswald font-light text-2xl"
+                  >
+                    {index ? ", " : ""}
+                    {genre.name}
+                  </span>
+                );
+              })}
+              <br />
+              {movies.production_companies.map((company, index) => {
+                return (
+                  <span key={company.id} className="font-oswald font-light">
+                    {index ? ", " : ""}
+                    {company.name}
+                  </span>
+                );
+              })}
             </section>
-            <section className="grid grid-cols-2 font-oswald font-light">
-              <div>
-                <p>Original Release:</p>
-                <span className="text-green-400 text-2xl">
-                  {movies.release_date}
-                </span>
-              </div>
-              <div>
-                <p>Running Time:</p>
-                <span className="text-green-400 text-2xl">
-                  {movies.runtime} mins
-                </span>
-              </div>
-              <div>
-                <p>Box Office:</p>
-                <span className="text-green-400 text-2xl">
-                  $
-                  {movies.revenue
-                    .toString()
-                    .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}
-                </span>
-              </div>
-              <div>
-                <p>Vote Average:</p>
-                <span className="text-green-400 text-2xl">
-                  {movies.vote_average} / 10
-                </span>
-              </div>
+            <section className="grid grid-cols-2 gap-4 font-oswald font-light">
+              <TextGrid
+                subtitle="Original Release:"
+                text={movies.release_date}
+              />
+              <TextGrid
+                subtitle="Running Time:"
+                text={`${movies.runtime} mins`}
+              />
+              <TextGrid
+                subtitle="Box Office:"
+                text={`$${movies.revenue
+                  .toString()
+                  .replace(/\B(?=(\d{3})+(?!\d))/g, ",")}`}
+              />
+              <TextGrid
+                subtitle="Vote Average:"
+                text={`${movies.vote_average} / 10`}
+              />
             </section>
           </section>
         </article>
