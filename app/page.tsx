@@ -2,8 +2,8 @@
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { getMovieDetails } from "./api/tmdb_api";
+import Navbar from "./components/navbar/page";
 import { MOVIES } from "./interface/movies";
-import Navbar from "./navbar/page";
 import { setMovie } from "./redux/features/movieSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 

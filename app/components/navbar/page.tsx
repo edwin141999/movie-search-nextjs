@@ -1,12 +1,12 @@
 "use client";
 import Image from "next/image";
-import { getMovieDetails, getSearchMovie } from "../api/tmdb_api";
-import { MOVIES, MOVIESEARCH } from "../interface/movies";
-import { setInfoMovie } from "../redux/features/infoMovieSlice";
-import { setMovie } from "../redux/features/movieSlice";
-import { setSearchMovie } from "../redux/features/searchMovieSlice";
-import { setSelectedMovie } from "../redux/features/selectedMovieSlice";
-import { useAppDispatch, useAppSelector } from "../redux/hooks";
+import { getMovieDetails, getSearchMovie } from "../../api/tmdb_api";
+import { MOVIES, MOVIESEARCH } from "../../interface/movies";
+import { setInfoMovie } from "../../redux/features/infoMovieSlice";
+import { setMovie } from "../../redux/features/movieSlice";
+import { setSearchMovie } from "../../redux/features/searchMovieSlice";
+import { setSelectedMovie } from "../../redux/features/selectedMovieSlice";
+import { useAppDispatch, useAppSelector } from "../../redux/hooks";
 
 export default function Navbar() {
   const selectedMovie = useAppSelector(
