@@ -1,3 +1,4 @@
+'use client'
 import { useAppSelector } from "@/app/redux/hooks";
 import Image from "next/image";
 import TextGrid from "../textGrid";
