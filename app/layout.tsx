@@ -1,9 +1,7 @@
-"use client";
 import type { Metadata } from "next";
 import { Lato, Oswald } from "next/font/google";
-import { Provider } from "react-redux";
 import "./globals.css";
-import { makeStore } from "./redux/store";
+import Providers from "./redux/provider";
 
 const lato = Lato({
   subsets: ["latin"],
@@ -30,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${lato.variable} ${oswald.variable}`}>
-        <Provider store={makeStore}>{children}</Provider>
+        <Providers>{children}</Providers>
       </body>
     </html>
   );
