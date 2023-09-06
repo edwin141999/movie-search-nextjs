@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { getSearchMovie } from "../../api/tmdb_api";
+// import { getSearchMovie } from "../../api/tmdb_api";
 import { MOVIES, MOVIESEARCH } from "../../interface/movies";
 import { setInfoMovie } from "../../redux/features/infoMovieSlice";
 import { setMovie } from "../../redux/features/movieSlice";
@@ -24,6 +24,17 @@ export default function Navbar() {
       dispatch(setInfoMovie([]));
       return;
     }
+
+    const getSearchMovie = async (query: string) => {
+      const result = await fetch(`/api/getSearchMovie?query=${query}`)
+        .then((res) => res.json())
+        .then((data) => {
+          return data;
+        })
+        .catch((err) => console.log(err));
+      return result;
+    };
+
     const movie: MOVIESEARCH = await getSearchMovie(e.target.value);
 
     dispatch(setSearchMovie(movie.results.slice(0, 5)));
