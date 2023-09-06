@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { getMovieDetails, getSearchMovie } from "../../api/tmdb_api";
+import { getSearchMovie } from "../../api/tmdb_api";
 import { MOVIES, MOVIESEARCH } from "../../interface/movies";
 import { setInfoMovie } from "../../redux/features/infoMovieSlice";
 import { setMovie } from "../../redux/features/movieSlice";
@@ -40,8 +40,9 @@ export default function Navbar() {
   };
 
   const getMovies = async (idMovie: number) => {
-    const movies: MOVIES = await getMovieDetails(idMovie);
-    dispatch(setMovie(movies));
+    fetch(`/api/getMoviesDetails?movieId=${idMovie}`)
+      .then((res) => res.json())
+      .then((data: MOVIES) => dispatch(setMovie(data)));
   };
 
   return (
