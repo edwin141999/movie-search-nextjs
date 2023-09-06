@@ -37,7 +37,7 @@ export default function Home() {
         {/* NAVBAR */}
         <Navbar />
         {/* INFO MOVIE */}
-        <Card />
+        {/* <Card /> */}
       </div>
     </main>
   );
