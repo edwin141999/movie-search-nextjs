@@ -28,9 +28,9 @@ export default function Home() {
   return (
     <main
       className="bg-cover bg-center"
-      style={{
-        backgroundImage: `url(${urlBackImg})`,
-      }}
+      // style={{
+      //   backgroundImage: `url(${urlBackImg})`,
+      // }}
     >
       {/*BACKDROP OPACITY*/}
       <div className="backdrop-opacity-10 backdrop-invert bg-black/50 px-52 py-8 min-h-screen">
