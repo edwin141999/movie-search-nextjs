@@ -26,7 +26,7 @@ export default function Navbar() {
     }
 
     const getSearchMovie = async (query: string) => {
-      const result = await fetch(`/api/getSearchMovie?query=${query}`)
+      const result:MOVIESEARCH = await fetch(`/api/getSearchMovie?query=${query}`)
         .then((res) => res.json())
         .then((data) => {
           return data;

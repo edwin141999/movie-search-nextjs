@@ -4,6 +4,7 @@ import Navbar from "./components/navbar/page";
 import { setLoading } from "./redux/features/loadingSlice";
 import { setMovie } from "./redux/features/movieSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
+import { MOVIES } from "./interface/movies";
 
 export default function Home() {
   const movies = useAppSelector((state) => state.movieSlice);
@@ -12,7 +13,7 @@ export default function Home() {
   let urlBackImg = `https://image.tmdb.org/t/p/original${movies.backdrop_path}`;
 
   const getMovieDetails = async (idMovie: number) => {
-    const result = await fetch(`/api/getMoviesDetails?movieId=${idMovie}`)
+    const result:MOVIES = await fetch(`/api/getMoviesDetails?movieId=${idMovie}`)
       .then((res) => res.json())
       .then((data) => {return data})
       .catch((err) => console.log(err));
