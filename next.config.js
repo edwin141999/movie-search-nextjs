@@ -20,7 +20,7 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/api/:path*',
+        source: 'https://api.themoviedb.org/3/movie/:path*',
         destination: 'https://movie-search-nextjs.vercel.app/:path*',
       },
     ]
