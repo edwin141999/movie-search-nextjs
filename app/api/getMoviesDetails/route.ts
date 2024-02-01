@@ -8,7 +8,7 @@ export async function GET(req: Request) {
     {
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${process.env.TOKEN_API}`,
+        Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
       },
     }
   );
