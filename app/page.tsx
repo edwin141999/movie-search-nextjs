@@ -37,7 +37,7 @@ export default function Home() {
     <main
       className="bg-cover bg-center"
       style={{
-        // backgroundImage: `url(${urlBackImg})`,
+        backgroundImage: `url(${urlBackImg})`,
       }}
     >
       {/*BACKDROP OPACITY*/}
