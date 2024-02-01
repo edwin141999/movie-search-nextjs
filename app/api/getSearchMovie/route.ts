@@ -7,7 +7,7 @@ export async function GET(req: Request) {
     `https://api.themoviedb.org/3/search/movie?query=${query}&language=en-US`,
     {
       headers: {
-        "Content-Type": "application/json",
+        accept: "application/json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
       },
     }
