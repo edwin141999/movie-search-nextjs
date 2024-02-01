@@ -27,6 +27,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="shortcut icon" href="logo.png" />
+      </head>
       <body className={`${lato.variable} ${oswald.variable}`}>
         <Providers>{children}</Providers>
       </body>

@@ -5,6 +5,7 @@ import { setLoading } from "./redux/features/loadingSlice";
 import { setMovie } from "./redux/features/movieSlice";
 import { useAppDispatch, useAppSelector } from "./redux/hooks";
 import { MOVIES } from "./interface/movies";
+import Card from "./components/card/page";
 
 export default function Home() {
   const movies = useAppSelector((state) => state.movieSlice);
@@ -42,7 +43,7 @@ export default function Home() {
         {/* NAVBAR */}
         <Navbar />
         {/* INFO MOVIE */}
-        {/* <Card /> */}
+        <Card />
       </div>
     </main>
   );
