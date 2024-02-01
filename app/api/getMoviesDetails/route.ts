@@ -10,8 +10,7 @@ export async function GET(req: Request) {
       headers: {
         // "Content-Type": "application/json",
         accept: "application/json",
-        // Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiIxZjM3YTVjYTVlN2YyYTU1OGEzYjc5ODgzNDk5Y2FhZCIsInN1YiI6IjY0ZGZiNTIxYWFlYzcxMDNmYmVhZDdlMyIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.EVXj9pP7vb91Ac5tAVJMi_-Evy0Jh1Cmg4iH_EbiuWA`,
+        Authorization: `Bearer ${process.env.TOKEN_API}`,
       },
     }
   );
