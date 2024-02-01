@@ -18,6 +18,8 @@ export default function Home() {
       .then((res) => res.json())
       .then((data) => {return data})
       .catch((err) => console.log(err));
+    console.log('VER QUE SALE =>', result);
+    
     return result;
   }
 
