@@ -6,8 +6,10 @@ export async function GET(req: Request) {
   const res = await fetch(
     `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
     {
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        // "Content-Type": "application/json",
+        accept: "application/json",
         Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN_API}`,
       },
     }
