@@ -4,9 +4,9 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url);
   const movieId = searchParams.get("movieId");
   const res = await fetch(
-    `https://api.themoviedb.org/3/movie/${movieId}?language=en-US`,
+    `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.NEXT_PUBLIC_KEY_API}?language=en-US`,
     {
-      method: 'GET',
+      method: "GET",
       headers: {
         // "Content-Type": "application/json",
         accept: "application/json",
